@@ -49,14 +49,105 @@ any situations where the `ObjectPair` class might be preferable?
 
 ## Task 02
 
-Write a java program that use a shopping list (see the class [ShoppingList](src/main/java/com/softserveinc/task02/ShoppingList.java))
- of products and performs the following operations: 
-* add an item at a specified location
+Write a java program that use a shopping list (see the class [ShoppingList](src/main/java/com/softserveinc/task02/ShoppingList.java) 
+in package [com.softserveinc.task02](src/main/java/com/softserveinc/task02)) of products and performs the following operations: 
+* add an item 
 * delete an item in the list
 * print the contents of the ArrayList
 
 Note: class [ShoppingList](src/main/java/com/softserveinc/task02/ShoppingList.java) should have the private field named `items`
 type of `ArrayList<String>`
+
+## Task 03
+
+In this task, you will experiment with maps and sets in Java.
+
+Open a class named [MapSetTester](src/main/java/com/softserveinc/task03/MapSetTester.java) with a main method.
+
+You will be using the `TreeSet` and `HashMap` classes, so open up the Java API so you can refer to the documentation for 
+these classes as you work on these problems. 
+
+In your `main` method, create a `HashMap` named `networkMap` that maps a TV network to the television shows from that network. 
+That is `HashMap` will contain pairs where the key is a TV network name and the associated value is a `TreeSet` that 
+contains television shows from that network:
+
+```Java
+    Map<String, Set<String>> networkMap = new HashMap<>();
+``` 
+
+The loop reads the name of a television network and then the name of a TV show on that network from a file. Add the 
+network and show to the hash map. That is, find the network in the hash map.
+
+If the network is not in the hash map yet, create a tree set with the name of the television show in it, and then add the 
+`key, value` pair (network, set with 1 show) to the hash map.
+
+If the network is in the hash map, add the television show to the tree set for that network. 
+
+After you update the hash map, output the contents of the hash map (i.e. `System.out.println(networkMap);` ). 
+This will repeat until 10 shows have been entered.
+
+Sample Output (note how the networks are not necessarily in lexicographic order, but the television shows for each 
+network are in lexicographic order... why? ):
+
+```
+    TV show on FOX: The Simpsons
+    {FOX=[The Simpsons]}
+
+    TV show on NBC: ER
+    {FOX=[The Simpsons], NBC=[ER]}
+
+    TV show on ABC: 20/20
+    {FOX=[The Simpsons], NBC=[ER], ABC=[20/20]}
+
+    TV show on CBS: Survivor
+    {CBS=[Survivor], FOX=[The Simpsons], NBC=[ER], ABC=[20/20]}
+
+    TV show on ABC: Lost
+    {CBS=[Survivor], FOX=[The Simpsons], NBC=[ER], ABC=[20/20, Lost]}
+
+    TV show on FOX: Family Guy
+    {CBS=[Survivor], FOX=[Family Guy, The Simpsons], NBC=[ER], ABC=[20/20, Lost]}
+
+    TV show on CBS: CSI
+    {CBS=[CSI, Survivor], FOX=[Family Guy, The Simpsons], NBC=[ER], ABC=[20/20, Lost]}
+
+    TV show on FOX: American Idol
+    {CBS=[CSI, Survivor], FOX=[American Idol, Family Guy, The Simpsons], NBC=[ER], ABC=[20/20, Lost]}
+
+    TV show on ABC: Desperate Housewives
+    {CBS=[CSI, Survivor], FOX=[American Idol, Family Guy, The Simpsons], NBC=[ER], ABC=[20/20, Desperate Housewives, Lost]}
+
+    TV show on NBC: Law And Order
+    {CBS=[CSI, Survivor], FOX=[American Idol, Family Guy, The Simpsons], NBC=[ER, Law And Order], ABC=[20/20, Desperate Housewives, Lost]}
+```
+
+Once you have your hash map set up, write and call a method that prints the contents of the hash map in alphabetical order 
+by network, one network per line.
+
+Create an array list initialized with the set of keys of the hash map. (HINT: The `keySet` method of the `HashMap` class 
+returns a set of the keys and the `ArrayList` has a constructor that allows you to initialize the array list using a collection 
+(and a set is a collection)).
+
+Sort the array list. You can do this in one line.
+
+Iterate over the (sorted) array list of keys, get the corresponding value (set of TV shows) for each key from the hash
+ map and print them out. (Note: You won't have to sort the TV shows for the network since they'll already be sorted... why?) 
+
+Sample output:
+
+```
+    ABC: [20/20, Desperate Housewives, Lost]
+    CBS: [CSI, Survivor]
+    FOX: [American Idol, Family Guy, The Simpsons]
+    NBC: [ER, Law And Order]
+```
+
+Complete your tester by writing a loop that asks the user to enter a TV show and then outputs the network that maps to 
+that TV show, if any. Otherwise report "UNKNOWN". Repeat until the user enters an empty string.
+
+HINT: Write a method that uses the map to lookup the network for a TV show: Iterate over each key (network) in the map, 
+and see if its value (set of shows) contains the desired show. If so, return the network. If the TV show is not in the 
+map return null. You don't have to worry about uppercase/lowercase, just match the TV show name exactly. 
 
 
 
