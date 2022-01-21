@@ -1,12 +1,14 @@
 package com.softserveinc.task01;
 
+import javax.print.DocFlavor;
+
 /**
  * Test driver for the ObjectPair class.
  *
  * @author Nathan Sprague
  * @version V1, 8/2016
  */
-public class ObjectPairDriver {
+public class PairDriver {
 
     /**
      * Create several stadium pairs then print the name of the stadium with the largest capacity.
@@ -15,10 +17,10 @@ public class ObjectPairDriver {
      */
     public static void main(String[] args) {
 
-        ObjectPair[] stadiums = new ObjectPair[3];
-        stadiums[0] = new ObjectPair("Bridgeforth Stadium", 25000);
-        stadiums[1] = new ObjectPair("Michigan Stadium", 109901);
-        stadiums[2] = new ObjectPair("Lane Stadium", 66233);
+        Pair<String, Integer>[] stadiums = new Pair[3];
+        stadiums[0] = new Pair<>("Bridgeforth Stadium", 25000);
+        stadiums[1] = new Pair<>("Michigan Stadium", 109901);
+        stadiums[2] = new Pair<>("Lane Stadium", 66233);
 
         System.out.println(largestStadium(stadiums));
     }
@@ -30,14 +32,14 @@ public class ObjectPairDriver {
      *                 integer capacity
      * @return The name of the stadium with the largest capacity
      */
-    public static String largestStadium(ObjectPair[] stadiums) {
-        ObjectPair larger = stadiums[0];
+    public static String largestStadium(Pair<String, Integer>[] stadiums) {
+        Pair<String, Integer> larger = stadiums[0];
         for (int i = 1; i < stadiums.length; i++) {
-            if((int)stadiums[i].getSecond() > (int)larger.getSecond()) {
+            if(stadiums[i].getSecond() > larger.getSecond()) {
                 larger = stadiums[i];
             }
         }
-        return (String)larger.getFirst();
+        return larger.getFirst();
     }
 
 }
