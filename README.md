@@ -71,7 +71,7 @@ In your `main` method, create a `HashMap` named `networkMap` that maps a TV netw
 That is `HashMap` will contain pairs where the key is a TV network name and the associated value is a `TreeSet` that 
 contains television shows from that network:
 
-```Java
+```java
     Map<String, Set<String>> networkMap = new HashMap<>();
 ``` 
 
@@ -90,35 +90,34 @@ Sample Output (note how the networks are not necessarily in lexicographic order,
 network are in lexicographic order... why? ):
 
 ```
-    TV show on FOX: The Simpsons
-    {FOX=[The Simpsons]}
+{FOX=[The Simpsons]}
 
-    TV show on NBC: ER
-    {FOX=[The Simpsons], NBC=[ER]}
+TV show on NBC: ER
+{FOX=[The Simpsons], NBC=[ER]}
 
-    TV show on ABC: 20/20
-    {FOX=[The Simpsons], NBC=[ER], ABC=[20/20]}
+TV show on ABC: 20/20
+{ABC=[20/20], FOX=[The Simpsons], NBC=[ER]}
 
-    TV show on CBS: Survivor
-    {CBS=[Survivor], FOX=[The Simpsons], NBC=[ER], ABC=[20/20]}
+TV show on CBS: Survivor
+{ABC=[20/20], CBS=[Survivor], FOX=[The Simpsons], NBC=[ER]}
 
-    TV show on ABC: Lost
-    {CBS=[Survivor], FOX=[The Simpsons], NBC=[ER], ABC=[20/20, Lost]}
+TV show on ABC: Lost
+{ABC=[20/20, Lost], CBS=[Survivor], FOX=[The Simpsons], NBC=[ER]}
 
-    TV show on FOX: Family Guy
-    {CBS=[Survivor], FOX=[Family Guy, The Simpsons], NBC=[ER], ABC=[20/20, Lost]}
+TV show on FOX: Family Guy
+{ABC=[20/20, Lost], CBS=[Survivor], FOX=[Family Guy, The Simpsons], NBC=[ER]}
 
-    TV show on CBS: CSI
-    {CBS=[CSI, Survivor], FOX=[Family Guy, The Simpsons], NBC=[ER], ABC=[20/20, Lost]}
+TV show on CBS: CSI
+{ABC=[20/20, Lost], CBS=[CSI, Survivor], FOX=[Family Guy, The Simpsons], NBC=[ER]}
 
-    TV show on FOX: American Idol
-    {CBS=[CSI, Survivor], FOX=[American Idol, Family Guy, The Simpsons], NBC=[ER], ABC=[20/20, Lost]}
+TV show on FOX: American Idol
+{ABC=[20/20, Lost], CBS=[CSI, Survivor], FOX=[American Idol, Family Guy, The Simpsons], NBC=[ER]}
 
-    TV show on ABC: Desperate Housewives
-    {CBS=[CSI, Survivor], FOX=[American Idol, Family Guy, The Simpsons], NBC=[ER], ABC=[20/20, Desperate Housewives, Lost]}
+TV show on ABC: Desperate Housewives
+{ABC=[20/20, Desperate Housewives, Lost], CBS=[CSI, Survivor], FOX=[American Idol, Family Guy, The Simpsons], NBC=[ER]}
 
-    TV show on NBC: Law And Order
-    {CBS=[CSI, Survivor], FOX=[American Idol, Family Guy, The Simpsons], NBC=[ER, Law And Order], ABC=[20/20, Desperate Housewives, Lost]}
+TV show on NBC: Law And Order
+{ABC=[20/20, Desperate Housewives, Lost], CBS=[CSI, Survivor], FOX=[American Idol, Family Guy, The Simpsons], NBC=[ER, Law And Order]}
 ```
 
 Once you have your hash map set up, write and call a method that prints the contents of the hash map in alphabetical order 
@@ -136,10 +135,10 @@ Iterate over the (sorted) array list of keys, get the corresponding value (set o
 Sample output:
 
 ```
-    ABC: [20/20, Desperate Housewives, Lost]
-    CBS: [CSI, Survivor]
-    FOX: [American Idol, Family Guy, The Simpsons]
-    NBC: [ER, Law And Order]
+ABC: [20/20, Desperate Housewives, Lost]
+CBS: [CSI, Survivor]
+FOX: [American Idol, Family Guy, The Simpsons]
+NBC: [ER, Law And Order]
 ```
 
 Complete your tester by writing a loop that asks the user to enter a TV show and then outputs the network that maps to 
