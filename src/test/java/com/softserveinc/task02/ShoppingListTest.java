@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,7 +21,7 @@ class ShoppingListTest {
         Field items = CLASS.getDeclaredField("items");
         assertTrue(Modifier.isPrivate(items.getModifiers()));
         assertFalse(Modifier.isStatic(items.getModifiers()));
-        assertEquals(ArrayList.class, items.getType());
+        assertEquals(List.class, items.getType());
     }
 
     @Test
