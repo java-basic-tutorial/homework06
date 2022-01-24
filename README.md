@@ -53,6 +53,7 @@ Write a java program that use a shopping list (see the class [ShoppingList](src/
 in package [com.softserveinc.task02](src/main/java/com/softserveinc/task02)) of products and performs the following operations: 
 * add an item 
 * delete an item in the list
+* get count of items
 * print the contents of the ArrayList
 
 Note: class [ShoppingList](src/main/java/com/softserveinc/task02/ShoppingList.java) should have the private field named `items`
